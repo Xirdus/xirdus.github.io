@@ -18,6 +18,15 @@ function App() {
             <Route exact path="/simple-addition">
               <SimpleMath dataFn={SimpleMathData.additionData}/>
             </Route>
+            <Route exact path="/simple-subtraction">
+              <SimpleMath dataFn={SimpleMathData.subtractionData}/>
+            </Route>
+            <Route exact path="/simple-multiplication">
+              <SimpleMath dataFn={SimpleMathData.multiplicationData}/>
+            </Route>
+            <Route exact path="/simple-division">
+              <SimpleMath dataFn={SimpleMathData.divisionData}/>
+            </Route>
           </Switch>
         </Route>
       </Switch>
