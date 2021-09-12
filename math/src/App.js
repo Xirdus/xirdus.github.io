@@ -1,10 +1,10 @@
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 
 import SimpleMath, * as SimpleMathData from './SimpleMath';
 
 function App() {
   return (
-    <BrowserRouter basename="/math">
+    <HashRouter>
       <Switch>
         <Route exact path="/">
           <h2><Link to="/simple-addition">Simple addition</Link></h2>
@@ -30,7 +30,7 @@ function App() {
           </Switch>
         </Route>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
