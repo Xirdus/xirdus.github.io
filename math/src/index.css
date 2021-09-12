@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.back-button {
+  font-size: 18px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.simple-math-container-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.simple-math-container-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.simple-math-expr {
+  margin: 10px 5px 10px 0;
+  font-size: 36px;
+}
+
+.simple-math-input {
+  width: 2em;
+  margin: 5px;
+  font-size: 36px;
+}
+
+.simple-math-answer-correct {
+  margin: 5px 5px 5px 10px;
+  font-size: 36px;
+}
+
+.simple-math-answer-wrong {
+  margin: 5px 5px 5px 10px;
+  font-size: 36px;
+  background-image: linear-gradient(transparent 40%, red 40%, red 60%, transparent 60%);
+}
+
+.simple-math-label-correct {
+  margin: 5px;
+  font-size: 36px;
+  color: green;
+}
+
+.simple-math-label-wrong {
+  margin: 5px;
+  font-size: 36px;
+  color: red;
+}
+
+.simple-math-button {
+  margin: 10px auto 0 0;
+  font-size: 24px;
+  padding: 12px;
 }

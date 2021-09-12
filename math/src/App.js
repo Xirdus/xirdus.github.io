@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+
+import SimpleMath, * as SimpleMathData from './SimpleMath';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <h2><Link to="/simple-addition">Simple addition</Link></h2>
+          <h2><Link to="/simple-subtraction">Simple subtraction</Link></h2>
+          <h2><Link to="/simple-multiplication">Simple multiplication</Link></h2>
+          <h2><Link to="/simple-division">Simple division</Link></h2>
+        </Route>
+        <Route>
+          <div className="back-button"><Link to="/">&lt; Back</Link></div>
+          <Switch>
+            <Route exact path="/simple-addition">
+              <SimpleMath dataFn={SimpleMathData.additionData}/>
+            </Route>
+          </Switch>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
