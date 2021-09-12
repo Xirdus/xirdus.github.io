@@ -4,7 +4,7 @@ import SimpleMath, * as SimpleMathData from './SimpleMath';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/math">
       <Switch>
         <Route exact path="/">
           <h2><Link to="/simple-addition">Simple addition</Link></h2>
