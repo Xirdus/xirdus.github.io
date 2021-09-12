@@ -62,8 +62,16 @@ export default class SimpleMath extends React.Component {
     }
   }
 
-  onCheck = () => {
+  onCheckClick = () => {
     this.setState({ checked: true });
+  }
+
+  onSubmit = (event) => {
+    if (this.state.input.length > 0) {
+      this.setState({ checked: true });
+    }
+    event.preventDefault();
+    return false;
   }
 
   onNext = () => {
@@ -80,45 +88,54 @@ export default class SimpleMath extends React.Component {
     let bottomerSpace;
 
     if (!this.state.checked) {
-      answerSpace =
-        <input
-          type="text"
-          className="simple-math-input"
-          maxLength="3"
-          inputMode="numeric"
-          pattern="[0-9]*"
-          value={this.state.input}
-          onChange={this.onInputChange}/>;
-      bottomSpace =
-        null;
-      bottomerSpace =
-        <input
-          type="button"
+      answerSpace = (
+        <form onSubmit={this.onSubmit}>
+          <input
+            type="text"
+            className="simple-math-input"
+            maxLength="3"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            autoFocus
+            value={this.state.input}
+            onChange={this.onInputChange}/>
+        </form>
+      );
+      bottomSpace = null;
+      bottomerSpace = (
+        <button
           className="simple-math-button"
-          value="Check"
           disabled={this.state.input.length === 0}
-          onClick={this.onCheck}/>;
+          onClick={this.onCheckClick}>
+          Check
+        </button>
+      );
     } else {
-      bottomerSpace =
-        <input
-          type="button"
+      bottomerSpace = (
+        <button
           className="simple-math-button"
-          value="Next"
-          onClick={this.onNext}/>;
+          onClick={this.onNext}>
+          Next
+        </button>
+      );
       
       if (parseInt(this.state.input) === this.state.data.answer) {
-        answerSpace =
-          <p className="simple-math-answer-correct">{this.state.input}</p>;
-        bottomSpace =
-          <p className="simple-math-label-correct">Correct!</p>;
+        answerSpace = (
+          <p className="simple-math-answer-correct">{this.state.input}</p>
+        );
+        bottomSpace = (
+          <p className="simple-math-label-correct">Correct!</p>
+        );
       } else {
-        answerSpace =
+        answerSpace = (
           <>
             <p className="simple-math-answer-wrong">{this.state.input}</p>
             <p className="simple-math-answer-correct">{this.state.data.answer}</p>
-          </>;
-        bottomSpace =
-          <p className="simple-math-label-wrong">Wrong!</p>;
+          </>
+        );
+        bottomSpace = (
+          <p className="simple-math-label-wrong">Wrong!</p>
+        );
       }
     }
 
