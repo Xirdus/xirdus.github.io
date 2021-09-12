@@ -57,7 +57,7 @@ export default class SimpleMath extends React.Component {
 
   onInputChange = (event) => {
     const value = event.target.value;
-    if (/^\d*$/.test(value)) {
+    if (/^[0-9]*$/.test(value)) {
       this.setState({ input: value });
     }
   }
@@ -85,6 +85,8 @@ export default class SimpleMath extends React.Component {
           type="text"
           className="simple-math-input"
           maxLength="3"
+          inputMode="numeric"
+          pattern="[0-9]*"
           value={this.state.input}
           onChange={this.onInputChange}/>;
       bottomSpace =
